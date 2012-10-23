@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h3 login
+	form
+		div.row
+			p user name
+			input(name='username', type='text')
+		div.row
+			p password
+			input(name='password', type='text')
+		div.row
+			input(type='button', value='login')
+		div.row
+			p First time? <a href='/register'>Register</a> now.
+		div.row
+			a(href='/') home
