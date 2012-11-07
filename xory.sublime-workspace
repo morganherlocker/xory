@@ -1,0 +1,281 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 173,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Nodejs/SublimeText-Nodejs/Nodejs.sublime-build",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 378.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xory/views/index.jade",
+		"/C/xory/views/layout.jade",
+		"/C/xory/views/login.jade",
+		"/C/xory/views/profile.jade",
+		"/C/xory/views/register.jade",
+		"/C/xory/app.js",
+		"/C/apache/chat-socket/routes/index.js",
+		"/C/apache/chat-socket/views/layout.jade",
+		"/C/apache/chat-socket/README.md",
+		"/C/apache/chat-socket/views/index.jade",
+		"/C/apache/chat-socket/app.js",
+		"/C/apache/morganherlocker/morganherlocker/views/layout.jade",
+		"/C/$esite-dev/programs/Custom_RadioShack.rsc",
+		"/C/HDBuySell.rsc",
+		"/C/$eSite/HarleyDavidson/Macros/DotNetCallableMacros.rsc",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/GISDK/gisdk.tmLanguage",
+		"/O/Acxiom/eliteusa_extract_michaels_indiv.txt",
+		"/C/$esite-dev/programs/HDBuySell.rsc",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/Theme - Soda/Soda Light.sublime-theme",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/soda-theme/Soda Light.sublime-theme",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/User/Plain text.sublime-settings",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/VB.Net/vbdotnet.JSON-tmLanguage",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/VB.Net/vbdontnet.tmLanguage",
+		"/C/$esite-dev/programs/reportmacros.rsc",
+		"/C/$esite-dev/programs/BatchPrintMapsToPDF.rsc",
+		"/C/xory/routes/index.js",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/Jade/Jade.tmLanguage",
+		"/C/xory/test.js",
+		"/C/Users/Morgan/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\$esite-dev, C:\\$esite-dev\\",
+			"C:\\users\\morgan\\appdata\\roaming\\,C:\\Users\\Morgan\\AppData\\Roaming\\Sublime Text 2\\Packages,C:\\$esite-dev",
+			"C:\\users\\morgan\\appdata\\roaming\\,C:\\Users\\Morgan\\AppData\\Roaming\\Sublime Text 2\\Packages",
+			"C:\\$esite-dev\\programs"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"style",
+			"}",
+			"{",
+			"ComposeIndexMap",
+			"arIndexMapLayers",
+			"indexmapla",
+			"layers",
+			"please",
+			"fill in",
+			"Please",
+			"blank",
+			"cbsa",
+			"AddFeature",
+			"HD_GetDealer",
+			"HD_GetDealerRecord\n",
+			"HD_GetDealerRecord",
+			"ZIP",
+			"cbsa",
+			"zip",
+			"cbsa",
+			"mod",
+			"len",
+			"GetMap|",
+			"Exp|",
+			"exp",
+			"r2i",
+			"acos",
+			"other",
+			"function",
+			"macro",
+			"comments",
+			"include",
+			"go",
+			"singlelinecomm",
+			"Get",
+			"quotedString",
+			"singleQuotedString",
+			"'",
+			"\"",
+			"'",
+			"\"",
+			"quoted",
+			"single",
+			"string.quoted.single",
+			"string.quoted.single.gisdk",
+			"quote",
+			"vbnet",
+			"quotedString",
+			"vbnet",
+			"source.",
+			"\"",
+			"'",
+			"\"",
+			"'",
+			"\"",
+			"frame",
+			"1.5",
+			"OpenAndLoadLayout",
+			"legendtoim",
+			"displayName",
+			"auth comp",
+			"3001",
+			"();\n",
+			"3000",
+			"route"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"gisdk",
+			"\"",
+			"'",
+			"gisdk",
+			"3000",
+			"3001"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17,
+								17
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 375.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

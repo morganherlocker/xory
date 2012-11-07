@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	div.row
+		div.span4
+			h3 #{debate.option1}
+		div.span1
+			h3 or 
+		div.span4 
+			h3 #{debate.option2}
+	div.row
+		div.span4
+			p #{debate.option1Args}
+		div.span1
+			br 
+		div.span4
+			p #{debate.option2Args}
+	div.row
+		div.span4 
+			span
+				i.icon-ok  
+				span #{debate.option1Votes}
+		div.span1
+			br 
+		div.span4
+			span
+				i.icon-ok  
+				span #{debate.option2Votes}
+	div.row
+		br 
+		h5 tags:
+		ul
+			each tag in debate.tags
+				li #{tag}

@@ -9,10 +9,18 @@ html
 		link(rel='stylesheet', href='/stylesheets/style.css')
 	body
 		div.container
+			div.row.span4.offset5
+				span #{greeting} 
+				span 
+					if (greeting != '')
+						a(href='/profile') profile 
+						a(href='/logout') logout
+					else
+						a(href='/login') login
 			div.row
 				div.hero-unit
 					a(href='/', style='text-decoration: none;color:black')
 						h1 xory
 					h2 debating anything/everything
-			div.row.span4.offset2
+			div.row.span9
 				block content
