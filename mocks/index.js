@@ -13,6 +13,7 @@ exports.user =
 
 exports.debate = 
 {
+  createDate: new Date(),
   authorID: 1,
   option1: 'Libertarianism',
   option2: 'Traditional Conservatism',

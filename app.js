@@ -12,15 +12,6 @@ var express = require('express')
   , mock = require('./mocks');
 
 
-// Bootstrap models
-var models_path = __dirname + '/app/models'
-  , model_files = fs.readdirSync(models_path)
-model_files.forEach(function (file) {
-  require(models_path+'/'+file)
-})
-
-var testDebate
-
 passport.serializeUser(function(user, done) {
   done(null, user);
 });

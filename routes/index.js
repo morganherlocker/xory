@@ -4,7 +4,11 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'xory', greeting: getGreeting(req)});
+  var debates = require('../db/debates');
+  var newDebates = debates.getDebates(function(newDebates){
+    debug('newDebates in callback for index.js route:', newDebates);
+    res.render('index', { title: 'xory', greeting: getGreeting(req), newDebates: newDebates});
+  });
 };
 
 /*
