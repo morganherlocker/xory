@@ -68,6 +68,10 @@ app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/profile', routes.profile);
 app.get('/debate/:id', routes.debate);
+app.get('/editDebate/:id', routes.editDebate);
+app.post('/editDebate/:id', routes.saveDebate);
+app.get('/saveDebate/:id', routes.saveRedirectDebate);
+app.get('/createDebate', routes.createDebate);
 app.get('/auth/google', 
   passport.authenticate('google'),
   function(req, res){

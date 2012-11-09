@@ -12,7 +12,7 @@ exports.getDebates = function(done){
 	});
 }
 
-//returns 1 debate with a matching _id
+//returns one debate with a matching _id
 exports.getDebateByID = function(_id, done){
 	var Mongolian = require("mongolian");
 	// Create a server instance with default host and port
@@ -22,9 +22,6 @@ exports.getDebateByID = function(_id, done){
 	var debates = db.collection("debates");
 	//find debates
 	debates.findOne({_id: _id}, function(err, post){
-		d('post',post)
-		d('error',err)
-		d('_id', _id)
 		done(post);
 	});
 }
@@ -39,9 +36,25 @@ exports.insertDebate = function(debate, done){
 	//get collection
 	var debates = db.collection("debates");
 	//insert the debate
-	debates.insert(debate);
+	d('devate to be inserted============', debate)
+	debates.insert(debate, function(err, data){
+		d('err', err);
+		d('data', data)
+	});
 }
 
+// saves a debate
+exports.saveDebate = function(debate){
+	var Mongolian = require("mongolian");
+	// Create a server instance with default host and port
+	var server = new Mongolian;
+	// Get database
+	var db = server.db("test3");
+	//get collection
+	var debates = db.collection("debates");
+	//insert the debate
+	debates.save(debate);
+}
 
 
 

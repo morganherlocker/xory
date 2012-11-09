@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	script
+		function save(){
+			
+		}
+	form(id='editDebateForm', action='/editDebate/#{debate._id}', method='post')
+		div.row
+			h2 title
+			div.row 
+				div.span4
+					input(name='option1', type='text', style='width:100%', value='#{debate.option1}')
+				div.span1
+					h3 or
+				div.span4
+					input(name='option2', type='text', style='width:100%', value='#{debate.option2}')
+		div.row
+			h2 arguments
+			div.row
+				div.span4
+					textarea(name='option1Args', style='width:100%;height:300px') #{debate.option1Args}
+				div.span1
+					br	
+				div.span4
+					textarea(name='option2Args', style='width:100%;height:300px') #{debate.option2Args}
+		div.row
+			h2 tags
+			div.row
+				div.row.span9
+					input(name='tags', type='text', style='width:100%', value='#{debate.tags}')
+		div.row
+			br
+			input.btn.btn-success.btn-large(type='submit',  value='save')
