@@ -37,8 +37,17 @@ exports.profile = function(req, res){
  * GET debate
  */
 exports.debate = function(req, res){
+  var _id = req.params.id;
   var mock = require('../mocks');
-  res.render('debate', {greeting: getGreeting(req), debate: mock.debate});
+  var debates = require('../db/debates');
+  var ObjectId = require('mongolian').ObjectId 
+
+  debates.getDebateByID(new ObjectId(_id), function(debate){
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    debug(_id, _id);
+    debug('debate returned from by id query', debate)
+    res.render('debate', {greeting: getGreeting(req), debate: debate});
+  });
 };
 
 

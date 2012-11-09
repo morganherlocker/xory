@@ -22,7 +22,9 @@ exports.getDebateByID = function(_id, done){
 	var debates = db.collection("debates");
 	//find debates
 	debates.findOne({_id: _id}, function(err, post){
-		d('date', post.createDate)
+		d('post',post)
+		d('error',err)
+		d('_id', _id)
 		done(post);
 	});
 }

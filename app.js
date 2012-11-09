@@ -67,7 +67,7 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/profile', routes.profile);
-app.get('/debate/:id?', routes.debate);
+app.get('/debate/:id', routes.debate);
 app.get('/auth/google', 
   passport.authenticate('google'),
   function(req, res){

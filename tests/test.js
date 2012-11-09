@@ -36,6 +36,9 @@ var newDebates = debates.getDebates(function(data){
 });
 
 
+debates.getDebateByID(newest._id, function(debateSelectedByID){
+	d('debateSelectedByID', debateSelectedByID);
+});
 
 ////////////////////////////
 function d(name, obj){
