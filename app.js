@@ -70,7 +70,7 @@ app.get('/profile', routes.profile);
 app.get('/debate/:id', routes.debate);
 app.get('/editDebate/:id', routes.editDebate);
 app.post('/editDebate/:id', routes.saveDebate);
-app.get('/saveDebate/:id', routes.saveRedirectDebate);
+app.get('/deleteDebate/:id', routes.deleteDebate);
 app.get('/createDebate', routes.createDebate);
 app.get('/auth/google', 
   passport.authenticate('google'),

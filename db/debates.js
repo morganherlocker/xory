@@ -36,10 +36,8 @@ exports.insertDebate = function(debate, done){
 	//get collection
 	var debates = db.collection("debates");
 	//insert the debate
-	d('devate to be inserted============', debate)
 	debates.insert(debate, function(err, data){
-		d('err', err);
-		d('data', data)
+
 	});
 }
 
@@ -54,6 +52,19 @@ exports.saveDebate = function(debate){
 	var debates = db.collection("debates");
 	//insert the debate
 	debates.save(debate);
+}
+
+// deletes a debate
+exports.deleteDebate = function(debate){
+	var Mongolian = require("mongolian");
+	// Create a server instance with default host and port
+	var server = new Mongolian;
+	// Get database
+	var db = server.db("test3");
+	//get collection
+	var debates = db.collection("debates");
+	//insert the debate
+	debates.remove(debate);
 }
 
 

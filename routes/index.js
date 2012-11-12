@@ -101,7 +101,6 @@ exports.saveDebate = function(req, res){
         "tags" : req.body.tags.split(',')
     }
     //add data from post
-    debug('rigft b4 insert call debat obj', debate)
     debates.insertDebate(debate);
 
     debates.getDebateByID(debate._id, function(debate){      
@@ -121,6 +120,21 @@ exports.saveDebate = function(req, res){
       res.redirect('/debate/'+_id);
     });
   }
+}
+
+/*
+ * GET deleteDebate
+ */
+exports.deleteDebate = function(req, res){
+  var _id = req.params.id;
+  var debates = require('../db/debates');
+  var ObjectId = require('mongolian').ObjectId 
+
+
+  debates.getDebateByID(new ObjectId(_id), function(debate){
+    debates.deleteDebate(debate);    
+    res.redirect('/');
+  });
 }
 
 
