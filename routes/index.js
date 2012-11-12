@@ -19,6 +19,13 @@ exports.login = function(req, res){
 };
 
 /*
+ * GET registration page.
+ */
+exports.register = function(req, res){
+  res.render('register', {greeting: getGreeting(req)});
+};
+
+/*
  * GET logout
  */
 exports.logout = function(req, res){
@@ -129,7 +136,6 @@ exports.deleteDebate = function(req, res){
   var _id = req.params.id;
   var debates = require('../db/debates');
   var ObjectId = require('mongolian').ObjectId 
-
 
   debates.getDebateByID(new ObjectId(_id), function(debate){
     debates.deleteDebate(debate);    

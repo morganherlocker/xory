@@ -16,11 +16,14 @@ html
 						a(href='/profile') profile 
 						a(href='/logout') logout
 					else
-						a(href='/login') login
+						a(href='/login') login 
+						a(href='/register') register
 			div.row
 				div.hero-unit
-					a(href='/', style='text-decoration: none;color:black')
-						h1 xory
+					span
+						a(href='/', style='text-decoration: none;color:black')
+							img(src='img/xory.png', style='width:100px;height:100px;') 
+							h1 xory
 					h2 debating anything/everything
 			div.row.span9
 				block content
