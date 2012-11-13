@@ -34,8 +34,9 @@ block content
 				li #{tag}
 	div.row
 		h5 created #{debate.createDate}
-	div.row
-		br
-		a.btn.btn.btn-large.btn-primary(href='/editDebate/#{debate._id}') edit
-		span(style='padding:5px')
-		a.btn.btn.btn-large.btn-danger(href='/deleteDebate/#{debate._id}') delete
+	if isOwner
+		div.row
+			br
+			a.btn.btn.btn-large.btn-primary(href='/editDebate/#{debate._id}') edit
+			span(style='padding:5px')
+			a.btn.btn.btn-large.btn-danger(href='/deleteDebate/#{debate._id}') delete

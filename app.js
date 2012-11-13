@@ -45,26 +45,17 @@ passport.use(new GoogleStrategy({
           users.insertUser(user, function(){
           });
           profile.xory = user;
-          console.log('===============profile:=====================');
-          console.log(profile);
           profile.identifier = identifier;
-
           return done(null, profile);
         }
         else{
           //if the user can be found then attach that user's info from the db
           console.log('user from auth method', user)
           profile.xory = user;
-          console.log('===============profile:=====================');
-          console.log(profile);
           profile.identifier = identifier;
-
           return done(null, profile);
         }
     });
-
-
-		
   }
 ));
 
@@ -96,7 +87,9 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/user', routes.user);
-app.get('/user/:name', routes.user);
+app.get('/user/:id', routes.editUser);
+app.get('/editUser/:id', routes.editUser);
+app.post('/saveUser/:id', routes.saveUser);
 app.get('/debate/:id', routes.debate);
 app.get('/editDebate/:id', routes.editDebate);
 app.post('/editDebate/:id', routes.saveDebate);

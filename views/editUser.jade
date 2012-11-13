@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	h3 register
+	h5 Welcome to xory.  Answer a few questions for us to put together a profile.
+	form(action='/saveUser/#{user._id}', method='post')
+		div.row
+			p username
+			input(name='name', type='text', value='#{user.name}')
+		div.row
+			p political views
+			input(name='political', type='text', value='#{user.political}')
+		div.row
+			p operating system
+			input(name='os', type='text', value='#{user.os}')
+		div.row
+			p favorite music?
+			input(name='music', type='text', value='#{user.music}')
+		div.row
+			p favorite about?
+			input(name='about', type='text', value='#{user.about}')
+		div.row
+			p 
+			input.btn.btn-success.btn-large(type='submit', value='Save Profile')

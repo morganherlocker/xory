@@ -21,7 +21,7 @@ exports.login = function(req, res){
  * GET registration page.
  */
 exports.register = function(req, res){
-  res.render('register', {greeting: getGreeting(req)});
+//  res.render('editUser', {greeting: getGreeting(req), user: req.session.passport.user.xory});
 };
 
 /*
@@ -36,7 +36,6 @@ exports.logout = function(req, res){
  * GET user
  */
 exports.user = function(req, res){
-  debug('req.session.passport!!!!!!!!!!!!!!!!!!!!!!!', req.session.passport)
   var gravatar = require('gravatar');
   var profilePic = gravatar.url('morgan.herlocker@gmail.com')
   var name = req.params.name;
@@ -47,18 +46,57 @@ exports.user = function(req, res){
       res.redirect('/');
     }
     else{
-      res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: req.session.passport.user.xory});
+      users.getUserByName(req.session.passport.user.xory.name, function(user){
+        res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user, owner: true});
+      });
     }
   }
   else{
     name = name.replace('.', ' ');
     users.getUserByName(name, function(user){
-      debug('name', name)
-      debug('user returned by name', user)
+      var owner = false;
+      //check to see if this is the owner!!!
       res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
     });
   }
-};
+}
+
+/*
+ * GET editUser
+ */
+exports.editUser = function(req, res){
+  var gravatar = require('gravatar');
+  var profilePic = gravatar.url('morgan.herlocker@gmail.com')
+  var _id = req.params.id;
+  var users = require('../db/users');
+  var ObjectId = require('mongolian').ObjectId;
+
+  users.getUserByID(new ObjectId(_id), function(user){
+    res.render('editUser', {greeting: getGreeting(req), profilePic: profilePic, user: user});
+  });
+}
+
+/*
+ * POST saveUser
+ */
+exports.saveUser = function(req, res){
+  var gravatar = require('gravatar');
+  var profilePic = gravatar.url('morgan.herlocker@gmail.com')
+  var _id = req.params.id;
+  var users = require('../db/users');
+  var ObjectId = require('mongolian').ObjectId 
+
+  users.getUserByID(new ObjectId(_id), function(user){
+    user.name = req.body.name;
+    user.about = req.body.about;
+    user.political = req.body.political;
+    user.os = req.body.os;
+    user.music = req.body.music;
+    
+    users.saveUser(user);
+    res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
+  });
+}
 
 /*
  * GET debate
@@ -69,7 +107,13 @@ exports.debate = function(req, res){
   var ObjectId = require('mongolian').ObjectId 
 
   debates.getDebateByID(new ObjectId(_id), function(debate){
-    res.render('debate', {greeting: getGreeting(req), debate: debate});
+    var isOwner = false;
+    if(typeof req.session.passport.user !== 'undefined'){
+      if (req.session.passport.user.xory.name === debate.authorName){
+        isOwner = true;
+      }
+    }
+    res.render('debate', {greeting: getGreeting(req), debate: debate, isOwner: isOwner});
   });
 };
 
@@ -115,9 +159,8 @@ exports.saveDebate = function(req, res){
   if(_id === 'undefined') {
 
     var debate = {
-       // "_id" : _id,
+        authorName: req.session.passport.user.xory.name,
         "createDate" : new Date(),
-        "authorID" : 1,
         "option1" : req.body.option1,
         "option2" : req.body.option2,
         "option1Args" : req.body.option1Args,

@@ -13,6 +13,25 @@ exports.getUsers = function(done){
 }
 
 //returns one user with a matching name
+exports.getUserByID = function(_id, done){
+	var Mongolian = require("mongolian");
+	// Create a server instance with default host and port
+	var server = new Mongolian;
+	// Get database
+	var db = server.db("test3");
+	var users = db.collection("users");
+	//find users
+	
+
+	users.findOne({_id: _id}, function(err, user){
+		d('got user!!!!', user)
+
+		d('used _id', _id)
+		done(user);
+	});
+}
+
+//returns one user with a matching name
 exports.getUserByName = function(name, done){
 	var Mongolian = require("mongolian");
 	// Create a server instance with default host and port
@@ -21,8 +40,8 @@ exports.getUserByName = function(name, done){
 	var db = server.db("test3");
 	var users = db.collection("users");
 	//find users
-	users.findOne({name: name}, function(err, post){
-		done(post);
+	users.findOne({name: name}, function(err, user){
+		done(user);
 	});
 }
 
