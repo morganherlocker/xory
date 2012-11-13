@@ -87,6 +87,7 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.get('/register', routes.register);
 app.get('/user', routes.user);
+app.get('/user/name/:name', routes.user);
 app.get('/user/:id', routes.editUser);
 app.get('/editUser/:id', routes.editUser);
 app.post('/saveUser/:id', routes.saveUser);
