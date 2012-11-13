@@ -85,7 +85,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/login', routes.login);
-app.get('/register', routes.register);
+app.get('/register', function(req, res){res.redirect('/login')});
 app.get('/user', routes.user);
 app.get('/user/name/:name', routes.user);
 app.get('/user/:id', routes.editUser);
@@ -103,7 +103,7 @@ app.get('/auth/google',
 app.get('/auth/google/return', 
   passport.authenticate('google'),
   function(req, res) {
-		res.redirect('/');
+		res.redirect('/user');
 	});
 app.get('/logout', routes.logout);
 
