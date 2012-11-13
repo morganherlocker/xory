@@ -14,7 +14,7 @@ exports.user =
 exports.debate = 
 {
   createDate: new Date(),
-  authorID: 1,
+  name: 'KidChaos', 
   option1: 'Libertarianism',
   option2: 'Traditional Conservatism',
   option1Args: 'United States Congressman Ron Paul has been described as combining libertarian and conservative "small government" ideas and'

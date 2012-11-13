@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	h3 #{user.name}
+	img(src='#{profilePic}')
+	h5 Location
+	p #{user.location}
+	h5 About
+	p #{user.about}
+	h5 Occupation
+	p #{user.occupation}
+	h5 Political Views
+	p #{user.political}
+	h5 Operating System 
+	p #{user.os}
+	h5 Musical Preference
+	p #{user.music}
+
+	a.btn.btn-large.btn-success(href='/createDebate') New Debate
+
+	

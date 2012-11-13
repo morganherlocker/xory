@@ -6,7 +6,6 @@
 exports.index = function(req, res){
   var debates = require('../db/debates');
   var newDebates = debates.getDebates(function(newDebates){
-    debug('newDebates in callback for index.js route:', newDebates);
     res.render('index', { title: 'xory', greeting: getGreeting(req), newDebates: newDebates});
   });
 };
@@ -34,10 +33,31 @@ exports.logout = function(req, res){
 };
 
 /*
- * GET profile
+ * GET user
  */
-exports.profile = function(req, res){
-  res.render('profile', {greeting: getGreeting(req), user: req.session.passport.user});
+exports.user = function(req, res){
+  debug('req.session.passport!!!!!!!!!!!!!!!!!!!!!!!', req.session.passport)
+  var gravatar = require('gravatar');
+  var profilePic = gravatar.url('morgan.herlocker@gmail.com')
+  var name = req.params.name;
+  var users = require('../db/users');
+
+  if(typeof name === 'undefined'){
+    if(typeof req.session.passport.user === 'undefined'){
+      res.redirect('/');
+    }
+    else{
+      res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: req.session.passport.user.xory});
+    }
+  }
+  else{
+    name = name.replace('.', ' ');
+    users.getUserByName(name, function(user){
+      debug('name', name)
+      debug('user returned by name', user)
+      res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
+    });
+  }
 };
 
 /*
@@ -45,7 +65,6 @@ exports.profile = function(req, res){
  */
 exports.debate = function(req, res){
   var _id = req.params.id;
-  var mock = require('../mocks');
   var debates = require('../db/debates');
   var ObjectId = require('mongolian').ObjectId 
 

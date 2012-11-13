@@ -23,7 +23,7 @@ debates(function(data){
 	d('debates', data);
 });*/
 
-var debates = require('../db/debates');
+/*var debates = require('../db/debates');
 var mockDebate = require('../mocks').debate;
 debates.insertDebate(mockDebate);
 
@@ -39,6 +39,12 @@ var newDebates = debates.getDebates(function(data){
 debates.getDebateByID(newest._id, function(debateSelectedByID){
 	d('debateSelectedByID', debateSelectedByID);
 });
+*/
+
+var gravatar = require('gravatar');
+var mmhURL = gravatar.url('morgan.herlocker@gmail.com')
+d('mmhURL', mmhURL);
+
 
 ////////////////////////////
 function d(name, obj){
