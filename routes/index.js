@@ -115,8 +115,8 @@ exports.debate = function(req, res){
       }
     }
     var markdown = require('node-markdown').Markdown
-    debate.option1Args = markdown(debate.option1Args);
-    debate.option2Args = markdown(debate.option2Args);
+    debate.option1Args = markdown(debate.option1Args, true);
+    debate.option2Args = markdown(debate.option2Args, true);
 
     res.render('debate', {greeting: getGreeting(req), debate: debate, isOwner: isOwner});
   });
