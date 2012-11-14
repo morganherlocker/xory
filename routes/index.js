@@ -92,9 +92,10 @@ exports.saveUser = function(req, res){
     user.political = req.body.political;
     user.os = req.body.os;
     user.music = req.body.music;
-    
+
     users.saveUser(user);
-    res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
+    res.redirect('/auth/google/');
+   // res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
   });
 }
 
@@ -113,6 +114,10 @@ exports.debate = function(req, res){
         isOwner = true;
       }
     }
+    var markdown = require('node-markdown').Markdown
+    debate.option1Args = markdown(debate.option1Args);
+    debate.option2Args = markdown(debate.option2Args);
+
     res.render('debate', {greeting: getGreeting(req), debate: debate, isOwner: isOwner});
   });
 };
