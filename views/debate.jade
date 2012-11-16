@@ -2,27 +2,27 @@ extends layout
 
 block content
 	div.row
-		div.span4
+		div.span5
 			h3 #{debate.option1}
+			div
+				p!=	debate.option1Args
 		div.span1
-			h3 vs 
-		div.span4 
+			h3 or 
+		div.span5
 			h3 #{debate.option2}
+			div
+				p!= debate.option2Args
+
+	
+		
 	div.row
-		div.span4
-			p!=	debate.option1Args
-		div.span1
-			br 
-		div.span4 
-			p!= debate.option2Args
-	div.row
-		div.span4 
+		div.span5 
 			span
 				i.icon-ok  
 				span #{debate.option1Votes}
 		div.span1
 			br 
-		div.span4
+		div.span5
 			span
 				i.icon-ok  
 				span #{debate.option2Votes}
@@ -34,9 +34,23 @@ block content
 				li #{tag}
 	div.row
 		h5 created #{debate.createDate}
-	if isOwner
+	if isOwner		
 		div.row
 			br
 			a.btn.btn.btn-large.btn-primary(href='/editDebate/#{debate._id}') edit
 			span(style='padding:5px')
 			a.btn.btn.btn-large.btn-danger(href='/deleteDebate/#{debate._id}') delete
+	div.row(style='padding-top:30px')
+		hr(style='border-color:#BABABA')
+		each comment in comments
+			h4 #{comment.authorName}
+			h5 #{comment.createDate}
+			p!= comment.text
+	if (greeting !== '')
+		div.row
+			form(action='/comment/#{debate._id}', method='post')
+				h2 leave a comment:
+				div.row
+					textarea(name='text', style='width:100%; height:110px')
+				div.row
+					input.btn.bt-large.btn-success(type='submit', value='Post Comment')

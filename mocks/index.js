@@ -34,3 +34,12 @@ exports.debate =
   option2Votes: 173,
   tags: ['politics', 'philosophy', 'ideology']
 }
+
+exports.comment = 
+{
+  createDate: new Date(),
+  debateID: '50a2b0ec000000cc2f000002',
+  authorID: '50a2c2b40000008836000003',
+  authorName: 'HipsterHacker',
+  text: 'This is a test comment. I am contemplating allowing **markdown** text.'
+}

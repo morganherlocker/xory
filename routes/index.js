@@ -95,7 +95,6 @@ exports.saveUser = function(req, res){
 
     users.saveUser(user);
     res.redirect('/auth/google/');
-   // res.render('user', {greeting: getGreeting(req), profilePic: profilePic, user: user});
   });
 }
 
@@ -118,7 +117,13 @@ exports.debate = function(req, res){
     debate.option1Args = markdown(debate.option1Args, true);
     debate.option2Args = markdown(debate.option2Args, true);
 
-    res.render('debate', {greeting: getGreeting(req), debate: debate, isOwner: isOwner});
+    var comments = require('../db/comments');
+    comments.getCommentsbyDebateID(debate._id, function(commentsFound){
+      for (var i in commentsFound){
+        commentsFound[i].text = markdown(commentsFound[i].text, true);
+      }
+      res.render('debate', {greeting: getGreeting(req), debate: debate, isOwner: isOwner, comments: commentsFound});
+    });
   });
 };
 
@@ -209,6 +214,31 @@ exports.deleteDebate = function(req, res){
     res.redirect('/');
   });
 }
+
+
+/*
+ * POST comment
+ */
+exports.postComment = function(req, res){
+  if (typeof req.session.passport.user.xory.name !== 'undefined' && req.body.text !== '') {
+    var debateID = req.params.id;
+    var comments = require('../db/comments');
+    var ObjectId = require('mongolian').ObjectId;
+    debug('debateID', debateID)
+    debug('authorID', req.session.passport.user.xory._id)
+    var comment = {
+      'createDate' : new Date(),
+      'debateID' : new ObjectId(debateID),
+      'authorID' : req.session.passport.user.xory._id,
+      'authorName' : req.session.passport.user.xory.name,
+      'text' : req.body.text
+    };
+    comments.insertComment(comment);
+  }
+
+  res.redirect('/debate/'+debateID);
+}
+
 
 
 

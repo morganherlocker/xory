@@ -96,6 +96,7 @@ app.get('/editDebate/:id', routes.editDebate);
 app.post('/editDebate/:id', routes.saveDebate);
 app.get('/deleteDebate/:id', routes.deleteDebate);
 app.get('/createDebate', routes.createDebate);
+app.post('/comment/:id', routes.postComment);
 app.get('/auth/google', 
   passport.authenticate('google'),
   function(req, res){
